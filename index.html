@@ -118,6 +118,15 @@ h2 .hl{background:linear-gradient(transparent 60%,var(--sun) 60%);padding:0 6px}
 .dark .pct{color:#F3A6BD}.light .pct{color:var(--mintD)}
 .nw b{display:block;font-size:18px;line-height:1.35}
 .nw small{display:block;font-size:13.5px;margin-top:4px;opacity:.7;font-weight:700}
+/* regalo */
+.gift{margin-top:18px;display:grid;grid-template-columns:70px 1fr 110px;gap:18px;align-items:center;background:var(--ink);color:#fff;border-radius:22px;padding:16px 22px;max-width:1180px;width:100%;text-align:left}
+.gift .gbox{font-size:52px;animation:wig 1.8s ease-in-out infinite}
+.gift b{display:block;font-family:'Fraunces',serif;font-size:26px;color:var(--sun)}
+.gift span{font-size:18px;line-height:1.4}
+.gift span b{display:inline;font-family:inherit;font-size:inherit;color:#fff}
+.mini-book{background:linear-gradient(135deg,var(--lavD),#8E7AD6);border-radius:6px 12px 12px 6px;height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:34px;box-shadow:6px 10px 18px -8px rgba(0,0,0,.6);transform:rotate(4deg)}
+.mini-book small{font-size:12px;font-weight:800;text-align:center;line-height:1.15;margin-top:4px}
+@keyframes wig{0%,100%{rotate:-6deg}50%{rotate:6deg}}
 /* colectivo */
 .colec{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left;max-width:1180px}
 .colec .cl{background:#fff;border-radius:22px;padding:20px 24px;border:1px solid #EFE7DA}
@@ -1078,6 +1087,31 @@ mark.mr{background:var(--lav)}mark.mt{background:var(--mint)}mark.mf{background:
 .rk .it b{display:block;font-size:19px;margin-bottom:4px}
 .rk .it p{font-size:15.5px;line-height:1.4;color:#4A4458}
 .rk .it.star{outline:3px solid var(--roseD);outline-offset:-3px}
+.rq{background:rgba(255,255,255,.75);border:2px dashed rgba(0,0,0,.15);border-radius:16px;padding:16px;font-size:20px;line-height:1.35;text-align:center;min-height:120px;display:grid;place-items:center;transition:all .3s}
+.rk .it{opacity:0;transform:translateY(14px);transition:all .45s}
+.rk.open .it{opacity:1;transform:none}
+.rk.open .it:nth-of-type(2){transition-delay:.12s}.rk.open .it:nth-of-type(3){transition-delay:.24s}
+.rk.open .rq{min-height:0;padding:8px 12px;font-size:15px;border-style:solid}
+.rk{transition:box-shadow .3s}
+.rk.cur{box-shadow:0 0 0 4px var(--ink)}
+/* timeline */
+.tline{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+.tline .track{position:absolute;left:4%;right:4%;top:38px;height:8px;border-radius:4px;background:#EFE7DA;overflow:hidden}
+.tline .prog{height:100%;width:0;background:linear-gradient(90deg,var(--skyD),var(--lavD),var(--peachD),var(--roseD));transition:width .8s}
+.ms{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px;opacity:.3;transition:opacity .4s}
+.ms.on{opacity:1}
+.ms .dot{width:84px;height:84px;border-radius:50%;background:#fff;border:6px solid var(--c);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;transition:transform .4s}
+.ms.cur .dot{transform:scale(1.12)}
+.ms .dot b{font-family:'Fraunces',serif;font-size:28px;line-height:1;color:var(--c)}
+.ms .dot small{font-size:13px;font-weight:800;color:var(--muted)}
+.ms .mc{background:#fff;border:2px solid #EFE7DA;border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:10px;width:100%;transform:translateY(16px);transition:all .45s;visibility:hidden;opacity:0}
+.ms.on .mc{transform:none;visibility:visible;opacity:1;border-color:var(--c)}
+.ms .exp{font-family:'Fraunces',serif;font-weight:800;font-size:19px;line-height:1.25;color:var(--ink)}
+.ms .exp::before{content:"Cabría esperar";display:block;font-family:'Nunito',sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--c);margin-bottom:4px}
+.ms .ev{display:flex;gap:10px;background:var(--paper2);border-radius:12px;padding:10px;font-size:15px;line-height:1.38}
+.ms .ev>span{font-size:22px;line-height:1}
+.ms .ev small{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-top:3px}
+.tlnote{margin-top:16px}
 /* futuro */
 .fut{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px;position:relative}
 .fut::before{content:"";position:absolute;left:5%;right:5%;top:38px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--sky),var(--lav),var(--peach))}
@@ -1461,21 +1495,21 @@ mark.mr{background:var(--lav)}mark.mt{background:var(--mint)}mark.mf{background:
 <!-- 19 RIESGOS -->
 <section class="slide" data-title="Riesgos" data-block="6">
   <div class="content">
-    <div class="kicker">Con los ojos abiertos</div>
-    <h2>Riesgos: <span class="hl">tres niveles</span></h2>
-    <div class="risks">
-      <div class="rk f" style="background:var(--lav)"><h3><span>🧍</span>Individuales</h3>
+    <div class="kicker">Con los ojos abiertos · ¿vosotros qué veis?</div>
+    <h2>¿Qué riesgos <span class="hl">veis en la IA?</span></h2>
+    <div class="risks" id="rkWrap">
+      <div class="rk" style="background:var(--lav)"><h3><span>🧍</span>Individuales</h3><div class="rq"><div>¿Qué nos puede pasar <b>a cada uno</b>?</div></div>
         <div class="it star"><b>🧠 Delegación cognitiva</b><p>Si la IA piensa por mí, dejo de entrenar mi pensamiento. Estudios recientes relacionan más confianza en la IA con menos pensamiento crítico.</p></div>
         <div class="it"><b>🤖 Sesgo de automatización</b><p>Creer lo que dice la máquina sin comprobarlo, solo porque suena seguro y bien escrito.</p></div>
         <div class="it"><b>💔 Dependencia emocional</b><p>Usar un chatbot como confidente o como sustituto de las relaciones con personas.</p></div></div>
-      <div class="rk f" style="background:var(--mint)"><h3><span>🏫</span>Educativos</h3>
-        <div class="it"><b>📉 Aprender sin esfuerzo</b><p>Si la IA hace la tarea, el alumno entrega… pero no aprende. El esfuerzo también es parte del aprendizaje.</p></div>
-        <div class="it"><b>↔️ Nuevas brechas</b><p>Entre quien sabe usarla bien y quien no, y entre familias con y sin recursos.</p></div>
-        <div class="it"><b>📝 Evaluación en crisis</b><p>¿Quién ha hecho este trabajo? Hay que repensar qué y cómo evaluamos.</p></div></div>
-      <div class="rk f" style="background:var(--peach)"><h3><span>🌍</span>Sociales</h3>
+      <div class="rk" style="background:var(--peach)"><h3><span>🌍</span>Sociales</h3><div class="rq"><div>¿Qué le puede pasar <b>a la sociedad</b>?</div></div>
         <div class="it"><b>🎭 Desinformación y <i>deepfakes</i></b><p>Textos, audios y vídeos falsos cada vez más creíbles y más fáciles de fabricar.</p></div>
         <div class="it"><b>💼 Empleo y desigualdad</b><p>El FMI calcula que cerca del 40 % del empleo mundial está expuesto a la IA (60 % en las economías avanzadas).</p></div>
         <div class="it"><b>🏢 Concentración de poder</b><p>Unas pocas empresas controlan los modelos más potentes y enormes cantidades de datos.</p></div></div>
+      <div class="rk" style="background:var(--mint)"><h3><span>🏫</span>Educativos</h3><div class="rq"><div>¿Qué puede pasar <b>en las aulas y en orientación</b>?</div></div>
+        <div class="it"><b>📉 Aprender sin esfuerzo</b><p>Si la IA hace la tarea, el alumno entrega… pero no aprende. El esfuerzo también es parte del aprendizaje.</p></div>
+        <div class="it"><b>↔️ Nuevas brechas</b><p>Entre quien sabe usarla bien y quien no, y entre familias con y sin recursos.</p></div>
+        <div class="it"><b>📝 Evaluación en crisis</b><p>¿Quién ha hecho este trabajo? Hay que repensar qué y cómo evaluamos.</p></div></div>
     </div>
   </div>
 </section>
@@ -1483,40 +1517,20 @@ mark.mr{background:var(--lav)}mark.mt{background:var(--mint)}mark.mf{background:
 <!-- 20 PRÓXIMOS AÑOS -->
 <section class="slide" data-title="¿Qué puede pasar?" data-block="6">
   <div class="content">
-    <div class="kicker">Lo que dicen los expertos</div>
-    <h2>¿Qué puede pasar <span class="hl">en los próximos años?</span></h2>
-    <div class="fut">
-      <div class="fy f"><div class="yr" style="border-color:var(--skyD)">5<small>años</small></div>
-        <div class="cd"><b>22 %</b>de los empleos se transformará hacia 2030: 170 millones nuevos y 92 millones que desaparecen.<small>Foro Económico Mundial, 2025</small></div>
-        <div class="cd"><b>~40 %</b>de las habilidades de cada trabajo cambiará; 59 de cada 100 trabajadores necesitarán formarse.<small>Foro Económico Mundial, 2025</small></div></div>
-      <div class="fy f"><div class="yr" style="border-color:var(--lavD)">10<small>años</small></div>
-        <div class="cd"><b>40 % · 60 %</b>del empleo mundial (y de las economías avanzadas) está expuesto a la IA; la mitad podría ganar productividad.<small>Fondo Monetario Internacional, 2024</small></div>
-        <div class="cd"><b>10 %</b>de probabilidad, según los investigadores, de que todas las profesiones sean automatizables hacia 2037.<small>Encuesta a 2.778 investigadores en IA, 2024</small></div></div>
-      <div class="fy f"><div class="yr" style="border-color:var(--peachD)">15+<small>años</small></div>
-        <div class="cd"><b>50 %</b>de probabilidad de que las máquinas superen a las personas en todas las tareas hacia 2047.<small>Encuesta a 2.778 investigadores en IA, 2024</small></div>
-        <div class="cd"><b>68 %</b>de esos expertos cree más probables los buenos resultados que los malos… aunque piden priorizar la seguridad.<small>Misma encuesta</small></div></div>
-    </div>
-    <div class="caveat f">🔭 Son escenarios, no destinos: en solo un año, la propia estimación de 2047 se adelantó 13 años.</div>
+    <div class="kicker">Lo que dicen los expertos · sociedad</div>
+    <h2>¿Qué puede pasar <span class="hl">en la sociedad?</span></h2>
+    <div class="tline" id="tlSoc"><div class="track"><div class="prog"></div></div><div class="ms" style="--c:var(--skyD)"><div class="dot"><b>+1</b><small>2027</small></div><div class="mc"><div class="exp">Más ataques y fraudes con IA… y más defensas. Llegan las normas.</div><div class="ev"><span>🛡️</span><div>El <b>94 %</b> de los expertos ve la IA como el mayor motor de cambio en ciberseguridad.<small>WEF, Ciberseguridad 2026</small></div></div><div class="ev"><span>⚖️</span><div>Dic. 2027: la UE regula la IA de <b>alto riesgo</b> (empleo, educación, sanidad…).<small>Reglamento Europeo de IA</small></div></div></div></div><div class="ms" style="--c:var(--lavD)"><div class="dot"><b>+3</b><small>2029</small></div><div class="mc"><div class="exp">Los «agentes» de IA empiezan a decidir pequeñas cosas por nosotros.</div><div class="ev"><span>🤖</span><div>El <b>15 %</b> de las decisiones laborales del día a día, tomadas por agentes de IA.<small>Gartner, para 2028</small></div></div><div class="ev"><span>💼</span><div>Aviso: podría desaparecer <b>la mitad</b> de los empleos de oficina de entrada.<small>D. Amodei (Anthropic), 1–5 años · previsión discutida</small></div></div></div></div><div class="ms" style="--c:var(--peachD)"><div class="dot"><b>+5</b><small>2031</small></div><div class="mc"><div class="exp">Profesiones que se transforman y una IA que iguala a las personas.</div><div class="ev"><span>💼</span><div>El <b>22 %</b> de los empleos cambia: 170 M nuevos y 92 M que desaparecen.<small>Foro Económico Mundial, 2030</small></div></div><div class="ev"><span>🧠</span><div>IA capaz de igualar a las personas en cualquier tarea en <b>5–10 años</b>.<small>D. Hassabis (Google DeepMind), 2025</small></div></div></div></div><div class="ms" style="--c:var(--roseD)"><div class="dot"><b>+10</b><small>2036</small></div><div class="mc"><div class="exp">Ciencia y medicina aceleradas… si todo va bien.</div><div class="ev"><span>🏥</span><div>Comprimir <b>50–100 años</b> de avances en biología en 5–10: la mayoría de cánceres y enfermedades infecciosas.<small>D. Amodei, «Machines of Loving Grace»</small></div></div><div class="ev"><span>🔬</span><div>Un <b>10 %</b> de probabilidad de que todas las profesiones sean automatizables hacia 2037.<small>Encuesta a 2.778 investigadores en IA</small></div></div></div></div></div>
+    <div class="caveat tlnote">🔭 Son previsiones de expertos, muchas de empresas del sector: escenarios posibles, no destinos.</div>
   </div>
 </section>
 
 <!-- 20b EDUCACIÓN -->
 <section class="slide" data-title="¿Y en educación?" data-block="6">
   <div class="content">
-    <div class="kicker">Lo que dicen los expertos · ahora, en nuestro terreno</div>
+    <div class="kicker">Lo que dicen los expertos · educación y orientación</div>
     <h2>¿Y en educación <span class="hl">y orientación?</span></h2>
-    <div class="fut">
-      <div class="fy f"><div class="yr" style="border-color:var(--skyD)">5<small>años</small></div>
-        <div class="cd"><b>37 %</b>del profesorado de secundaria ya usa IA en su trabajo; el 72 % teme por la integridad académica.<small>OCDE, TALIS 2024 / Digital Education Outlook 2026</small></div>
-        <div class="cd"><b>2/12/2027</b>la IA que admite, evalúa o decide el nivel educativo del alumnado pasa a ser de «alto riesgo» en la UE.<small>Reglamento Europeo de IA (tras el Digital Omnibus)</small></div></div>
-      <div class="fy f"><div class="yr" style="border-color:var(--lavD)">10<small>años</small></div>
-        <div class="cd"><b>Tutoría para todos</b>«En la próxima década, una gran tutoría será gratuita y habitual».<small>Bill Gates, 2025</small></div>
-        <div class="cd"><b>Pereza metacognitiva</b>Con IA genérica el alumnado entrega mejores trabajos… pero la mejora desaparece al quitarla. Las herramientas con diseño pedagógico sí dejan aprendizaje.<small>OCDE, Digital Education Outlook 2026</small></div></div>
-      <div class="fy f"><div class="yr" style="border-color:var(--peachD)">15+<small>años</small></div>
-        <div class="cd"><b>Orientar hacia lo que aún no existe</b>Casi el 40 % de las habilidades de cada empleo cambiará: la orientación vocacional apunta a un blanco en movimiento.<small>Foro Económico Mundial, 2025</small></div>
-        <div class="cd"><b>Lo humano sube de valor</b>Entre las habilidades que más crecen, junto a IA y datos: pensamiento creativo, resiliencia y curiosidad por aprender toda la vida.<small>Foro Económico Mundial, 2025</small></div></div>
-    </div>
-    <div class="caveat f">🧭 Para la orientación: menos informar, más <b>acompañar</b> en decisiones, emociones y proyectos de vida.</div>
+    <div class="tline" id="tlEdu"><div class="track"><div class="prog"></div></div><div class="ms" style="--c:var(--skyD)"><div class="dot"><b>+1</b><small>2027</small></div><div class="mc"><div class="exp">Más IA en el trabajo docente y presión por reforzar lo básico.</div><div class="ev"><span>📉</span><div>PISA 2025: el peor resultado medio de la OCDE en matemáticas y lectura; 1 de cada 5 alumnos, por debajo del nivel básico.<small>OCDE, sept. 2026</small></div></div><div class="ev"><span>👩‍🏫</span><div>El <b>37 %</b> del profesorado de secundaria ya usaba IA en 2024. La cifra sigue creciendo.<small>OCDE, TALIS 2024</small></div></div></div></div><div class="ms" style="--c:var(--lavD)"><div class="dot"><b>+3</b><small>2029</small></div><div class="mc"><div class="exp">La IA que orienta y evalúa, bajo la lupa. Y aprender a usarla se evalúa.</div><div class="ev"><span>⚖️</span><div>La IA que admite, evalúa o decide el <b>nivel educativo</b> del alumnado pasa a ser de alto riesgo.<small>Reglamento Europeo de IA, dic. 2027</small></div></div><div class="ev"><span>🔎</span><div>PISA 2029 medirá por primera vez la <b>alfabetización mediática y en IA</b>.<small>OCDE / ACER, 2026</small></div></div></div></div><div class="ms" style="--c:var(--peachD)"><div class="dot"><b>+5</b><small>2031</small></div><div class="mc"><div class="exp">Orientar hacia profesiones que cambian a gran velocidad.</div><div class="ev"><span>🧭</span><div>Casi el <b>40 %</b> de las habilidades de cada empleo habrá cambiado.<small>Foro Económico Mundial, 2030</small></div></div><div class="ev"><span>🌱</span><div>Crecen la creatividad, la resiliencia y aprender toda la vida, además de la IA y los datos.<small>Foro Económico Mundial, 2025</small></div></div></div></div><div class="ms" style="--c:var(--roseD)"><div class="dot"><b>+10</b><small>2036</small></div><div class="mc"><div class="exp">Tutores de IA para todos; lo humano marca la diferencia.</div><div class="ev"><span>🎓</span><div>«En la próxima década, una gran tutoría será <b>gratuita y habitual</b>».<small>Bill Gates, 2025</small></div></div><div class="ev"><span>🧠</span><div>Riesgo de <b>pereza metacognitiva</b>: mejora la tarea, no el aprendizaje.<small>OCDE, Digital Education Outlook 2026</small></div></div></div></div></div>
+    <div class="caveat tlnote">🧭 Para la orientación: menos informar, más <b>acompañar</b> en decisiones, emociones y proyectos de vida.</div>
   </div>
 </section>
 
@@ -1583,7 +1597,7 @@ mark.mr{background:var(--lav)}mark.mt{background:var(--mint)}mark.mf{background:
 <section class="slide" data-title="¡Gracias!" data-block="6">
   <div class="blob float" style="width:420px;height:420px;background:var(--mint);left:-120px;bottom:-120px"></div>
   <div class="blob float" style="width:320px;height:320px;background:var(--lav);right:-60px;top:-60px;animation-delay:-3s"></div>
-  <div class="end"><div style="display:flex;flex-direction:column;align-items:center">
+  <div class="end" style="align-items:start;padding-top:96px"><div style="display:flex;flex-direction:column;align-items:center">
     <div class="kicker" style="font-size:40px">¡Gracias por estas tres sesiones!</div>
     <h2 style="font-size:62px;text-align:center">Nos formamos mejor <span class="hl">en colectivo</span></h2>
     <div class="hands" style="margin-top:8px">🤝🧭💬🌱</div>
@@ -1591,6 +1605,7 @@ mark.mr{background:var(--lav)}mark.mt{background:var(--mint)}mark.mf{background:
       <div class="cl f"><h4>🫂 Ayudándonos unos a otros</h4><p>La mejor manera de capacitarnos es compartiendo lo que cada uno descubre: lo que funciona, lo que no y los trucos del día a día.</p><div class="chips" style="margin-top:12px"><span>Reuniones</span><span>Formaciones</span><span>Debates</span><span>Compartir materiales</span></div></div>
       <div class="cl cta f"><h4>✉️ Quiero montar algo así…</h4><p>…aunque <b>todavía no sé cómo</b>. Si quieres participar, <b>escríbeme</b> y le damos forma entre todos.</p><div style="display:flex;gap:12px;align-items:center;margin-top:14px"><div class="bigav" style="position:relative;right:auto;top:auto;width:80px;height:80px;border-width:4px;animation:none"><img class="av" alt="" style="width:64px;height:64px"></div><b style="font-size:20px">Vicente González Rodríguez</b></div></div>
     </div>
+    <div class="gift f"><div class="gbox">🎁</div><div><b>Un regalo: un «pequeño librillo»</b><span>«Orientar en la era digital»: todo lo del curso, para usarlo, adaptarlo… o para <b>difundir la palabra</b> entre vuestros compañeros y compañeras.</span></div><div class="mini-book">📘<small>Orientar en la<br>era digital</small></div></div>
   </div></div>
 </section>
 
@@ -1736,6 +1751,22 @@ document.querySelectorAll('.scene[data-names]').forEach(sc=>{
   draw();
 })();
 
+/* ---------- riesgos por pasos ---------- */
+(function(){
+  const cols=[...document.querySelectorAll('#rkWrap .rk')];let st=0;
+  function r(){cols.forEach((c,k)=>{c.classList.toggle('open',k<st);c.classList.toggle('cur',k===st-1);});}
+  steppers['Riesgos']={next:()=>{if(st<3){st++;r();return true;}return false;},prev:()=>{if(st>0){st--;r();return true;}return false;}};
+  cols.forEach((c,k)=>c.addEventListener('click',()=>{st=k+1;r();}));
+  hooks['Riesgos']=(all)=>{st=all?3:0;r();};r();
+})();
+/* ---------- líneas del tiempo ---------- */
+[['tlSoc','¿Qué puede pasar?'],['tlEdu','¿Y en educación?']].forEach(([id,title])=>{
+  const w=document.getElementById(id),ms=[...w.querySelectorAll('.ms')],pg=w.querySelector('.prog');let st=0;
+  function r(){ms.forEach((m,k)=>{m.classList.toggle('on',k<st);m.classList.toggle('cur',k===st-1);});pg.style.width=(st===0?0:(st-1)/3*100)+'%';}
+  steppers[title]={next:()=>{if(st<4){st++;r();return true;}return false;},prev:()=>{if(st>0){st--;r();return true;}return false;}};
+  ms.forEach((m,k)=>m.querySelector('.dot').addEventListener('click',()=>{st=k+1;r();}));
+  hooks[title]=(all)=>{st=all?4:0;r();};r();
+});
 /* ---------- pentada ---------- */
 (function(){
   const N=[
